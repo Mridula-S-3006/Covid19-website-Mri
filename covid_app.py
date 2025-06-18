@@ -31,7 +31,9 @@ view = st.sidebar.radio("Choose a View", ["Daily Cases", "Weekly Vaccinations", 
 all_countries=sorted(data['country'].dropna().unique())
 default_countries=['United States','India','Brazil','Russia','United Kingdom']
 countries = st.sidebar.multiselect("Select countries", options=all_countries, default=default_countries)
-continents = st.sidebar.multiselect("Select continents", options=data['continent'].dropna().unique(), default=["Asia", "Europe", "Africa","North America","South America","Australia"])
+available_continents=sorted(data['continent'].dropna().unique())
+default_continents=[i for i in ["Asia", "Europe", "Africa", "North America", "South America", "Oceania"] if i in available_continents]
+continents = st.sidebar.multiselect("Select continents", options=available_continents,default)
 
 if view == "Daily Cases":
     st.title("Daily COVID-19 Cases")
