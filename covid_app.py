@@ -33,7 +33,7 @@ default_countries=['United States','India','Brazil','Russia','United Kingdom']
 countries = st.sidebar.multiselect("Select countries", options=all_countries, default=default_countries)
 available_continents=sorted(data['continent'].dropna().unique())
 default_continents=[i for i in ["Asia", "Europe", "Africa", "North America", "South America", "Oceania"] if i in available_continents]
-continents = st.sidebar.multiselect("Select continents", options=available_continents,default)
+continents = st.sidebar.multiselect("Select continents", options=available_continents, default=default_continents)
 
 if view == "Daily Cases":
     st.title("Daily COVID-19 Cases")
